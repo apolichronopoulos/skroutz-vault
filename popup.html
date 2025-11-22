@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 350px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      color: #333;
+    }
+    .search-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 12px;
+      color: #666;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 12px;
+    }
+    input:focus {
+      outline: none;
+      border-color: #0066cc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #0052a3;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      display: none;
+    }
+    .status.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      display: block;
+    }
+    .status.error {
+      background: #ffebee;
+      color: #c62828;
+      display: block;
+    }
+    .info {
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      font-size: 11px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 Skroutz Vault</h1>
+    
+    <div class="search-group">
+      <label for="productName">Product Name</label>
+      <input type="text" id="productName" placeholder="Enter product name...">
+    </div>
+
+    <div class="search-group">
+      <label for="productId">Product ID (optional)</label>
+      <input type="text" id="productId" placeholder="e.g., 12345">
+    </div>
+
+    <button id="searchBtn">Search Archives</button>
+    
+    <div id="status" class="status"></div>
+    
+    <div class="info">
+      ℹ️ Searches for archived products on Skroutz across all supported regions.
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

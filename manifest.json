@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Skroutz Vault",
+  "version": "1.0.0",
+  "description": "Search for archived products on Skroutz",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.skroutz.gr/*",
+    "https://*.skroutz.eu/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Skroutz Vault"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.skroutz.gr/*",
+        "https://*.skroutz.eu/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
