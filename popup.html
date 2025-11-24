@@ -42,6 +42,20 @@
       outline: none;
       border-color: #0066cc;
     }
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 12px;
+      background-color: white;
+      cursor: pointer;
+    }
+    select:focus {
+      outline: none;
+      border-color: #0066cc;
+    }
     button {
       width: 100%;
       padding: 10px;
@@ -84,7 +98,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>🔍 Skroutz Vault</h1>
+    <h1>🔍🎩 Skroutz Vault</h1>
     
     <div class="search-group">
       <label for="productName">Product Name</label>
@@ -92,8 +106,15 @@
     </div>
 
     <div class="search-group">
-      <label for="productId">Product ID (optional)</label>
-      <input type="text" id="productId" placeholder="e.g., 12345">
+      <label for="region">Region</label>
+      <select id="region">
+        <option value="gr">🇬🇷 Greece (skroutz.gr)</option>
+        <option value="cy">🇨🇾 Cyprus (skroutz.com.cy)</option>
+        <option value="eu">🇪🇺 Europe (skroutz.eu)</option>
+        <option value="bg">🇧🇬 Bulgaria (skroutz.bg)</option>
+        <option value="ro">🇷🇴 Romania (skroutz.ro)</option>
+        <option value="de">🇩🇪 Germany (skroutz.de)</option>
+      </select>
     </div>
 
     <button id="searchBtn">Search Archives</button>
