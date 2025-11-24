@@ -19,6 +19,13 @@
       margin: 0 0 15px 0;
       font-size: 18px;
       color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h1 img {
+      width: 32px;
+      height: 32px;
     }
     .search-group {
       margin-bottom: 15px;
@@ -66,9 +73,34 @@
       cursor: pointer;
       font-size: 13px;
       font-weight: bold;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    button:last-of-type {
+      margin-bottom: 0;
+    }
+    button img {
+      width: 16px;
+      height: 16px;
     }
     button:hover {
       background: #0052a3;
+    }
+    #searchBtn {
+      background: #ff9500;
+    }
+    #searchBtn:hover {
+      background: #e68600;
+    }
+    #googleBtn {
+      background: #ffc107;
+      color: #333;
+    }
+    #googleBtn:hover {
+      background: #ffb300;
     }
     .status {
       margin-top: 10px;
@@ -98,7 +130,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>🔍🎩 Skroutz Vault</h1>
+    <h1><img src="icons/icon48.png" alt="Vault"> 🔍🎩 Skroutz Vault</h1>
     
     <div class="search-group">
       <label for="productName">Product Name</label>
@@ -117,7 +149,8 @@
       </select>
     </div>
 
-    <button id="searchBtn">Search Archives</button>
+    <button id="searchBtn"><img src="icons/skroutz-logo.png" alt="Vault"> <span>Search in Skroutz</span></button>
+    <button id="googleBtn"><img src="icons/google-logo.ico" alt="Google"> <span>Search in Google</span></button>
     
     <div id="status" class="status"></div>
     

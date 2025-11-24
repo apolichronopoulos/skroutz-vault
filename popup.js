@@ -32,6 +32,32 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
   }
 });
 
+document.getElementById('googleBtn').addEventListener('click', () => {
+  const productName = document.getElementById('productName').value.trim();
+  const region = document.getElementById('region').value;
+
+  if (!productName) {
+    showStatus('Please enter a product name', 'error');
+    return;
+  }
+
+  const regionDomains = {
+    'gr': 'skroutz.gr',
+    'cy': 'skroutz.com.cy',
+    'eu': 'skroutz.eu',
+    'bg': 'skroutz.bg',
+    'ro': 'skroutz.ro',
+    'de': 'skroutz.de'
+  };
+
+  const domain = regionDomains[region];
+  const query = encodeURIComponent(`${domain} ${productName}`);
+  const googleUrl = `https://www.google.com/search?q=${query}`;
+  
+  chrome.tabs.create({ url: googleUrl });
+  showStatus('Opened Google search in new tab!', 'success');
+});
+
 document.getElementById('productName').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     document.getElementById('searchBtn').click();
