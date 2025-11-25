@@ -56,14 +56,22 @@ Skroutz Vault gives you instant access to search Skroutz's archived products acr
    - **Search in Google** - Uses Google to search for products with Skroutz domain filter
 5. Results will open in a new tab or window
 
+### UI Preview
+
+<img src="./resources/skroutz-vault-ui.png" alt="Skroutz Vault UI" width="400"/>
+
 ## 📁 Files
 
 - `manifest.json` - Extension configuration
 - `popup.html` - UI for the extension popup
 - `popup.js` - Popup logic and region handling
-- `content.js` - Content script for page interaction
 - `background.js` - Background service worker
 - `icons/` - Extension icons
+- `resources/` - Screenshots and documentation assets
+- `scripts/` - Build and automation scripts
+- `PRIVACY.md` - Privacy policy for Chrome Store
+- `CHANGELOG.md` - Version history and changes
+- `VERSIONING.md` - Versioning guidelines
 
 ## 📄 License
 
