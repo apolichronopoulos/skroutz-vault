@@ -18,3 +18,9 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Build artifacts
+build/
+dist/
+*.zip
+skroutz-vault-v*.zip

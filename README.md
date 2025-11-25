@@ -34,7 +34,7 @@ Skroutz Vault gives you instant access to search Skroutz's archived products acr
 - ⌨️ Press Enter to search or use the button
 - 🎯 Opens search results in a new tab or window
 
-## 📥 Installation
+## 📥 Installation (developer mode)
 
 1. Clone or download this repository
 2. Open Chrome and go to `chrome://extensions/`
