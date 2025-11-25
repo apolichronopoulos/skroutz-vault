@@ -67,7 +67,7 @@
       width: 100%;
       padding: 10px;
       background: #0066cc;
-      color: white;
+      color: #e0e0e0;
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -91,16 +91,27 @@
     }
     #searchBtn {
       background: #ff9500;
+      color: #e0e0e0;
     }
     #searchBtn:hover {
       background: #e68600;
+      color: #e0e0e0;
+    }
+    #skuSearchBtn {
+      background: #8b0000;
+      color: #e0e0e0;
+    }
+    #skuSearchBtn:hover {
+      background: #660000;
+      color: #e0e0e0;
     }
     #googleBtn {
       background: #ffc107;
-      color: #333;
+      color: #e0e0e0;
     }
     #googleBtn:hover {
       background: #ffb300;
+      color: #e0e0e0;
     }
     .status {
       margin-top: 10px;
@@ -130,8 +141,8 @@
 </head>
 <body>
   <div class="container">
-    <h1><img src="icons/icon48.png" alt="Vault"> 🔍🎩 Skroutz Vault</h1>
-    
+    <h1><img src="icons/icon48.png" alt="Vault"> Skroutz Vault 🔍 🎩</h1>
+
     <div class="search-group">
       <label for="productName">Product Name</label>
       <input type="text" id="productName" placeholder="Enter product name...">
@@ -149,11 +160,12 @@
       </select>
     </div>
 
-    <button id="searchBtn"><img src="icons/skroutz-logo.png" alt="Vault"> <span>Search in Skroutz</span></button>
+    <button id="skuSearchBtn"><img src="icons/skoop-icon.png" alt="Skoop"> <span>Search using Skoop (recommended)</span></button>
+    <button id="searchBtn"><img src="icons/skroutz-logo.png" alt="Vault"> <span>Search in Skroutz (experimental)</span></button>
     <button id="googleBtn"><img src="icons/google-logo.ico" alt="Google"> <span>Search in Google</span></button>
-    
+
     <div id="status" class="status"></div>
-    
+
     <div class="info">
       ℹ️ Searches for archived products on Skroutz across all supported regions.
     </div>
