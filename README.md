@@ -20,7 +20,10 @@ Skroutz Vault gives you instant access to search Skroutz's archived products acr
 
 ## ✨ Features
 
-- 🔍 Search for archived products on Skroutz
+- 🔍 Multiple search options:
+  - **Skoop Database Search** (Recommended) - Search using Skoop's SKU database with detailed product information including category and minimum price. Only available for Greece (GR) region and requires Skoop to be enabled in your account.
+  - **Skroutz Search** (Experimental) - Search archived products on the main Skroutz website
+  - **Google Search** - Search for products using Google with Skroutz domain filter
 - 🌍 Support for multiple regions:
   - 🇬🇷 Greece (skroutz.gr)
   - 🇨🇾 Cyprus (skroutz.com.cy)
@@ -29,7 +32,7 @@ Skroutz Vault gives you instant access to search Skroutz's archived products acr
   - 🇷🇴 Romania (skroutz.ro)
   - 🇩🇪 Germany (skroutz.de)
 - ⌨️ Press Enter to search or use the button
-- 🎯 Opens search results in a new tab
+- 🎯 Opens search results in a new tab or window
 
 ## 📥 Installation
 
@@ -45,8 +48,11 @@ Skroutz Vault gives you instant access to search Skroutz's archived products acr
 1. Click the Skroutz Vault extension icon
 2. Enter a product name
 3. Select a region from the dropdown
-4. Click "Search Archives" or press Enter
-5. Results will open in a new tab
+4. Choose a search option:
+   - **Search using Skoop database** - For Greece region only. Shows product details including category and minimum price. Requires Skoop to be enabled in your Skroutz account.
+   - **Search in Skroutz** - Searches archived products across all regions
+   - **Search in Google** - Uses Google to search for products with Skroutz domain filter
+5. Results will open in a new tab or window
 
 ## 📁 Files
 

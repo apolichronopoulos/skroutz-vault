@@ -1,3 +1,12 @@
+const REGION_DOMAINS = {
+  'gr': 'skroutz.gr',
+  'cy': 'skroutz.com.cy',
+  'eu': 'skroutz.eu',
+  'bg': 'skroutz.bg',
+  'ro': 'skroutz.ro',
+  'de': 'skroutz.de'
+};
+
 document.getElementById('searchBtn').addEventListener('click', async () => {
   const productName = document.getElementById('productName').value.trim();
   const region = document.getElementById('region').value;
@@ -10,16 +19,7 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
   showStatus('Searching...', 'success');
 
   try {
-    const regionDomains = {
-      'gr': 'skroutz.gr',
-      'cy': 'skroutz.com.cy',
-      'eu': 'skroutz.eu',
-      'bg': 'skroutz.bg',
-      'ro': 'skroutz.ro',
-      'de': 'skroutz.de'
-    };
-
-    const domain = regionDomains[region];
+    const domain = REGION_DOMAINS[region];
     const baseUrl = `https://www.${domain}`;
     
     const query = encodeURIComponent(productName);
@@ -36,6 +36,11 @@ document.getElementById('skuSearchBtn').addEventListener('click', async () => {
   const productName = document.getElementById('productName').value.trim();
   const region = document.getElementById('region').value;
 
+  if (region !== 'gr') {
+    showStatus('Skoop search is only available for Greece (GR) region', 'error');
+    return;
+  }
+
   if (!productName) {
     showStatus('Please enter a product name', 'error');
     return;
@@ -44,16 +49,7 @@ document.getElementById('skuSearchBtn').addEventListener('click', async () => {
   showStatus('Searching SKU library...', 'success');
 
   try {
-    const regionDomains = {
-      'gr': 'skroutz.gr',
-      'cy': 'skroutz.com.cy',
-      'eu': 'skroutz.eu',
-      'bg': 'skroutz.bg',
-      'ro': 'skroutz.ro',
-      'de': 'skroutz.de'
-    };
-
-    const domain = regionDomains[region];
+    const domain = REGION_DOMAINS[region];
     const baseUrl = `https://www.${domain}`;
     const query = encodeURIComponent(productName);
     
@@ -72,7 +68,9 @@ document.getElementById('skuSearchBtn').addEventListener('click', async () => {
       const skus = data.map(item => ({
         name: item.sku_name || 'Unknown',
         url: item.sku_url ? `${baseUrl}${item.sku_url}` : '#',
-        image: item.sku_main_image || ''
+        image: item.sku_main_image || '',
+        price: item.price_min || 'N/A',
+        category: item.category_name || 'N/A'
       }));
 
       if (skus.length === 0) {
@@ -164,6 +162,7 @@ function displaySkuResults(skus, baseUrl, query) {
             ${sku.image ? `<div class="result-image"><img src="https:${sku.image}" alt="${sku.name}" onerror="this.style.display='none'"></div>` : ''}
             <div class="result-content">
               <strong>${sku.name}</strong><br>
+              <small style="color: #666;">${sku.category}</small> <small style="color: #999;">|</small> <small style="color: #ff6b35; font-weight: bold;">From: ${sku.price}</small><br>
               <a href="${sku.url}" target="_blank">${sku.url}</a>
               <div class="button-group">
                 <a class="check-btn" href="${sku.url}" target="_blank">Check in Skroutz</a>
@@ -190,17 +189,8 @@ document.getElementById('googleBtn').addEventListener('click', () => {
     return;
   }
 
-  const regionDomains = {
-    'gr': 'skroutz.gr',
-    'cy': 'skroutz.com.cy',
-    'eu': 'skroutz.eu',
-    'bg': 'skroutz.bg',
-    'ro': 'skroutz.ro',
-    'de': 'skroutz.de'
-  };
-
-  const domain = regionDomains[region];
-  const query = encodeURIComponent(`${domain} ${productName}`);
+  const domain = REGION_DOMAINS[region];
+  const query = encodeURIComponent(`site:${domain} ${productName}`);
   const googleUrl = `https://www.google.com/search?q=${query}`;
   
   chrome.tabs.create({ url: googleUrl });
@@ -212,6 +202,22 @@ document.getElementById('productName').addEventListener('keypress', (e) => {
     document.getElementById('skuSearchBtn').click();
   }
 });
+
+document.getElementById('region').addEventListener('change', () => {
+  const skuBtn = document.getElementById('skuSearchBtn');
+  const region = document.getElementById('region').value;
+  
+  if (region === 'gr') {
+    skuBtn.style.display = 'flex';
+    skuBtn.disabled = false;
+  } else {
+    skuBtn.style.display = 'none';
+    skuBtn.disabled = true;
+  }
+});
+
+// Initialize on page load
+document.getElementById('region').dispatchEvent(new Event('change'));
 
 function showStatus(message, type) {
   const statusDiv = document.getElementById('status');
