@@ -102,6 +102,14 @@ No additional secrets or configuration needed!
 
 - Solution: Check workflow file exists at `.github/workflows/release.yml`
 
+**Issue**: Cannot create release
+
+- Solution: Manually create release in GitHub and upload ZIP
+
+```bash
+./scripts/build.sh 1.0.1
+```
+
 ---
 
 You're all set! Next release is just 3 commands away. 🎉

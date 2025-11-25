@@ -1,3 +1,5 @@
+[![Release Build](https://github.com/apolichronopoulos/skroutz-vault/actions/workflows/release.yml/badge.svg)](https://github.com/apolichronopoulos/skroutz-vault/actions/workflows/release.yml)
+
 # 🔍🎩 Skroutz Vault
 
 This is a Chrome extension to search for the one thing Skroutz can't easily find: **old products**. 
